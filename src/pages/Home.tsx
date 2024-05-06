@@ -1,6 +1,9 @@
+import { Button } from "@/components/ui/button";
+
 import { Products } from "@/interface/types";
 import { fetchData } from "@/server/api";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 export function Home() {
 
     const [products, setProducts] = useState<Products>([]);
@@ -13,9 +16,12 @@ export function Home() {
         getProducts();
     }, []);
 
-
     return (
         <div>
+            <Button variant="default" className="m-4">
+                <Link to="/login">Login</Link>
+            </Button>
+
             {products.map((product) => (
                 <div key={product.id}>
                     {product.title}
